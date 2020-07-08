@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>1280</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>22</width>
+    <height>36</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="widget_ALL" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>1280</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/Images/切图/视屏框装饰-拷贝-5.png);</string>
+    </property>
+    <widget class="QWidget" name="widget_logo" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>800</width>
+       <height>49</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/Images/切图/眉头-拷贝.png);</string>
+     </property>
+     <widget class="QLabel" name="label_currentTime">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>100</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>00:00:00</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_netStat">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>0</y>
+        <width>49</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="console.qrc">:/Images/切图/有.png</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_menuUp" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>49</y>
+       <width>800</width>
+       <height>47</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/Images/切图/故障状态显示位BG.png);</string>
+     </property>
+     <widget class="QPushButton" name="Button_return">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>49</width>
+        <height>47</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 0;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="console.qrc">
+        <normaloff>:/Images/切图/返回-新.png</normaloff>:/Images/切图/返回-新.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>22</width>
+        <height>36</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_tips">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>0</y>
+        <width>460</width>
+        <height>47</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: 0;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_flowback" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>105</y>
+       <width>800</width>
+       <height>1175</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: 0;</string>
+     </property>
+     <widget class="QWidget" name="flowQueryWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>15</x>
+        <y>2</y>
+        <width>770</width>
+        <height>738</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: 0;</string>
+      </property>
+      <widget class="QWidget" name="flowqueryWidget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>770</width>
+         <height>92</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: 0;
+image: 0;
+background: 0;</string>
+       </property>
+       <widget class="QWidget" name="flowQueryLineWidget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>30</y>
+          <width>359</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 0;
+image: 0;
+background: rgb(63, 95, 120);
+color: rgb(255, 255, 255);
+border-radius: 4px;</string>
+        </property>
+        <widget class="QLineEdit" name="flowQueryLineEdit">
+         <property name="geometry">
+          <rect>
+           <x>4</x>
+           <y>1</y>
+           <width>351</width>
+           <height>38</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>18</number>
+         </property>
+         <property name="placeholderText">
+          <string>证件号 或 航班号#序号</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="flowQueryPushButton">
+        <property name="geometry">
+         <rect>
+          <x>588</x>
+          <y>30</y>
+          <width>122</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/切图/查询.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/查询-拷贝.png);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="userInfoWidget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>107</y>
+         <width>770</width>
+         <height>158</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: 0;
+image: 0;
+border: 0;
+background: 0;</string>
+       </property>
+       <widget class="QLabel" name="passengerNameLabel_1">
+        <property name="geometry">
+         <rect>
+          <x>75</x>
+          <y>0</y>
+          <width>120</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>旅客姓名：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="passengerNameLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>0</y>
+          <width>241</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 228, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="passengerFlightLabel_1">
+        <property name="geometry">
+         <rect>
+          <x>445</x>
+          <y>0</y>
+          <width>110</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>航 班 号：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="passengerFlightLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>0</y>
+          <width>191</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 228, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="passengerCodeLabel_1">
+        <property name="geometry">
+         <rect>
+          <x>75</x>
+          <y>60</y>
+          <width>111</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>证 件 号：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="passengerCodeLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>195</x>
+          <y>60</y>
+          <width>541</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 228, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="seatIdLabel_1">
+        <property name="geometry">
+         <rect>
+          <x>75</x>
+          <y>120</y>
+          <width>111</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>座 位 号：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="seatIdLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>195</x>
+          <y>120</y>
+          <width>221</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 228, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="boardingNumberLabel_1">
+        <property name="geometry">
+         <rect>
+          <x>445</x>
+          <y>120</y>
+          <width>91</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>序    号：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="boardingNumberLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>549</x>
+          <y>120</y>
+          <width>191</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 228, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="widget_wrapper" native="true">
+       <property name="geometry">
+        <rect>
+         <x>2</x>
+         <y>280</y>
+         <width>766</width>
+         <height>455</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: 0;
+background: transparent;</string>
+       </property>
+       <widget class="QTableWidget" name="flowTableWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>766</width>
+          <height>455</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="columnCount">
+         <number>1</number>
+        </property>
+        <column/>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_step2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>702</y>
+        <width>800</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="locationsLabel_1">
+       <property name="geometry">
+        <rect>
+         <x>52</x>
+         <y>48</y>
+         <width>311</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>请选择对应的准备位：</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_location1">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>148</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/1号准备位.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/1号准备位-拷贝.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_location2">
+       <property name="geometry">
+        <rect>
+         <x>319</x>
+         <y>148</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/2号准备位.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/2号准备位-拷贝.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_location3">
+       <property name="geometry">
+        <rect>
+         <x>547</x>
+         <y>148</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/3号准备位.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/3号准备位-拷贝.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_step1" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>650</y>
+        <width>800</width>
+        <height>52</height>
+       </rect>
+      </property>
+      <widget class="QPushButton" name="pushButton_bind">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>0</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/人工绑定.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/人工绑定-拷贝.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_intercept">
+       <property name="geometry">
+        <rect>
+         <x>507</x>
+         <y>0</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/拦----截.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/拦----截-拷贝.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_step3" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>702</y>
+        <width>800</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="locationsLabel_2">
+       <property name="geometry">
+        <rect>
+         <x>52</x>
+         <y>48</y>
+         <width>311</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>请选择对应的准备位：</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_intercept1">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>148</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/1号准备位-拷贝-2.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/1号准备位-拷贝-3.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_intercept2">
+       <property name="geometry">
+        <rect>
+         <x>319</x>
+         <y>148</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/2号准备位-拷贝-2.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/2号准备位-拷贝-3.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_intercept3">
+       <property name="geometry">
+        <rect>
+         <x>547</x>
+         <y>148</y>
+         <width>163</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-image: url(:/Images/切图/3号准备位-拷贝-2.png);}
+QPushButton:pressed{border-image: url(:/Images/切图/3号准备位-拷贝-3.png);}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget_msg" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>1280</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 0;
+background-color: rgba(0, 0, 0, 0.5);</string>
+    </property>
+    <widget class="QWidget" name="widget_box" native="true">
+     <property name="geometry">
+      <rect>
+       <x>124</x>
+       <y>467</y>
+       <width>552</width>
+       <height>345</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: 0;
+image: url(:/Images/切图/小弹窗BG.png);</string>
+     </property>
+     <widget class="QLabel" name="label_text">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>80</y>
+        <width>552</width>
+        <height>150</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: 0;
+background: 0;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>是 否 确 认 ？</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="msgButton_X1">
+      <property name="geometry">
+       <rect>
+        <x>485</x>
+        <y>40</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{image: 0; background: 0; border-image: url(:/Images/切图/关--闭-拷贝.png);}
+QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/切图/关--闭-拷贝-按下.png);}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="msgButton_X2">
+      <property name="geometry">
+       <rect>
+        <x>206</x>
+        <y>230</y>
+        <width>140</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{image: 0; background: 0; border-image: url(:/Images/切图/确--认-拷贝.png);}
+QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/切图/确--认-拷贝-2.png);}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="msgButton_Reject">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>230</y>
+        <width>140</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{image: 0; background: 0; border-image: url(:/Images/切图/取消-拷贝.png);}
+QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/切图/取消-拷贝-2.png);}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="msgButton_Accept">
+      <property name="geometry">
+       <rect>
+        <x>322</x>
+        <y>230</y>
+        <width>140</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{image: 0; background: 0; border-image: url(:/Images/切图/确--认-拷贝.png);}
+QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/切图/确--认-拷贝-2.png);}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget_dlg" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>1280</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 0;
+background-color: rgba(0, 0, 0, 0.5);</string>
+    </property>
+    <widget class="QWidget" name="widget_dialog" native="true">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>462</y>
+       <width>500</width>
+       <height>356</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: 0;
+image: url(:/Images/切图/大弹窗BG.png);</string>
+     </property>
+     <widget class="QLabel" name="titleLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>500</width>
+        <height>65</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: 0;
+background: 0;
+color: rgb(0, 228, 255);</string>
+      </property>
+      <property name="text">
+       <string>请选择旅客</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="optionsTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>440</width>
+        <height>210</height>
+       </rect>
+      </property>
+      <property name="columnCount">
+       <number>0</number>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="console.qrc"/>
+ </resources>
+ <connections/>
+</ui>
