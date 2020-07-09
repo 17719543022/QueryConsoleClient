@@ -418,10 +418,6 @@ void MainWindow::onReply(QNetworkReply *reply)
         time_request->stop();
     }
 
-    if (reply->url() == QUrl(LocalSettings::instance()->value("Interface/manualCheckUrl").toString())) {
-        ui->widget_msg->hide();
-    }
-
     QVariant statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
 
     if (statusCode.isValid()) {
