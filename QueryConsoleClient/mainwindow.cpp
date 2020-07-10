@@ -149,9 +149,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_step3->hide();
 
     // 开启HTTP服务StartHTTPServer
-    int nRet = StartHTTPServer(16666, &myListen);
+    int serverPort = LocalSettings::instance()->value("Device/serverPort").toInt();
+    int nRet = StartHTTPServer(serverPort, &myListen);
     if (nRet == 0) {
-        qDebug() << "server strart port = 16666";
+        qDebug() << "server strart port: " << serverPort;
     } else {
         qDebug() << "server fail";
     }
