@@ -135,7 +135,7 @@ void TicketScanSer::ReadData()
            m_mutex.unlock();
         }
         if(m_dataTimer!=nullptr && !m_dataTimer->isActive()){
-            m_dataTimer->start(5);
+            m_dataTimer->start(20);
         }
     } catch (std::exception &ex) {
         qCritical()<<ex.what();
@@ -157,7 +157,7 @@ void TicketScanSer::ReadDataTimeout()
 
         buffer=buffer.replace('\r',"").replace('\t',"").replace('\n',"");
 
-        qInfo()<<QString("TicketScanSer:%1").arg(QString(buffer.toHex().toUpper()));
+        qInfo()<<QString("TicketScanSer:%1").arg(QString::fromLocal8Bit(buffer));
 
         if(!buffer.isEmpty() && buffer.size()>15){
             if(buffer.size()>=60){
