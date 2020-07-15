@@ -651,14 +651,14 @@ void MainWindow::on_msgButton_Accept_clicked()
     QString uuid = QUuid::createUuid().toString();
     uuid.remove("{").remove("}").remove("-");
     json.insert("reqId", uuid);
-    json.insert("flightNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("flightNo").toString());
-    json.insert("flightDay", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("flightDay").toString());
-    json.insert("boardingNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("boardingNumber").toString());
-    json.insert("seatNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("seatId").toString());
-    json.insert("certificateType", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("certificateType").toInt());
-    json.insert("certificateNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("certificateNumber").toString());
-    json.insert("passengerName", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("passengerName").toString());
-    json.insert("passengerEnglishName", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toArray().at(0).toObject().value("passengerEnglishName").toString());
+    json.insert("flightNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("flightNo").toString());
+    json.insert("flightDay", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("flightDay").toString());
+    json.insert("boardingNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("boardingNumber").toString());
+    json.insert("seatNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("seatId").toString());
+    json.insert("certificateType", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("certificateType").toInt());
+    json.insert("certificateNumber", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("certificateNumber").toString());
+    json.insert("passengerName", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("passengerName").toString());
+    json.insert("passengerEnglishName", flowDocument.object().value("results").toArray().at(0).toObject().value("userInfo").toObject().value("passengerEnglishName").toString());
     // 接口中说是必须字段，应该是描述错误，应该是非必须字段才对
     json.insert("passengerSex", 0);
     json.insert("positionNumber", positionNumber);
@@ -666,6 +666,8 @@ void MainWindow::on_msgButton_Accept_clicked()
 
     doc.setObject(json);
     QByteArray array = doc.toJson(QJsonDocument::Compact);
+    qDebug() << "flowDocument: " << flowDocument;
+    qDebug() << "post: " << doc;
 
     naManager->post(request, array);
     ui->widget_msg->hide();
