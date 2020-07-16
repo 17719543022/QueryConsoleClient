@@ -698,7 +698,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../QueryConsoleClient/QueryConsoleClient.qrc ../QueryConsoleClient/QueryConsoleClient.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents ../QueryConsoleClient/QueryConsoleClient.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.12.6/5.12.6/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QueryConsoleClient/HTTPServer/HTTPServerDef.h ../QueryConsoleClient/HTTPServer/HTTPServerExp.h ../QueryConsoleClient/ScrollText.h ../QueryConsoleClient/logindialog.h ../QueryConsoleClient/mainwindow.h ../QueryConsoleClient/paramdef.h ../QueryConsoleClient/settings.h ../QueryConsoleClient/ticketscanser.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../QueryConsoleClient/ScrollText.cpp ../QueryConsoleClient/logindialog.cpp ../QueryConsoleClient/main.cpp ../QueryConsoleClient/mainwindow.cpp ../QueryConsoleClient/settings.cpp ../QueryConsoleClient/ticketscanser.cpp $(DISTDIR)/
@@ -726,79 +726,9 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all: qrc_QueryConsoleClient.cpp qrc_QueryConsoleClient.cpp
+compiler_rcc_make_all: qrc_QueryConsoleClient.cpp
 compiler_rcc_clean:
-	-$(DEL_FILE) qrc_QueryConsoleClient.cpp qrc_QueryConsoleClient.cpp
-qrc_QueryConsoleClient.cpp: ../QueryConsoleClient/QueryConsoleClient.qrc \
-		/opt/Qt5.12.6/5.12.6/gcc_64/bin/rcc \
-		../QueryConsoleClient/Images/切图/确--认-拷贝-2.png \
-		../QueryConsoleClient/Images/切图/采集成功.png \
-		../QueryConsoleClient/Images/切图/2号准备位-拷贝-2.png \
-		../QueryConsoleClient/Images/切图/icon_wjl.png \
-		../QueryConsoleClient/Images/切图/1号准备位-拷贝-3.png \
-		../QueryConsoleClient/Images/切图/系统验证通过.png \
-		../QueryConsoleClient/Images/切图/眉头-拷贝.png \
-		../QueryConsoleClient/Images/切图/含logo背景.png \
-		../QueryConsoleClient/Images/切图/1号准备位.png \
-		../QueryConsoleClient/Images/切图/证件失效.png \
-		../QueryConsoleClient/Images/切图/返回.png \
-		../QueryConsoleClient/Images/切图/登机牌已采集.png \
-		../QueryConsoleClient/Images/切图/返回-新.png \
-		../QueryConsoleClient/Images/切图/照片-.png \
-		../QueryConsoleClient/Images/切图/人工验证通过.png \
-		../QueryConsoleClient/Images/切图/logo.png \
-		../QueryConsoleClient/Images/切图/1号准备位-拷贝-2.png \
-		../QueryConsoleClient/Images/切图/有.png \
-		../QueryConsoleClient/Images/切图/拦----截.png \
-		../QueryConsoleClient/Images/切图/1号准备位-拷贝.png \
-		../QueryConsoleClient/Images/切图/3号准备位-拷贝.png \
-		../QueryConsoleClient/Images/切图/无.png \
-		../QueryConsoleClient/Images/切图/证件失效-拷贝.png \
-		../QueryConsoleClient/Images/切图/登--录-.png \
-		../QueryConsoleClient/Images/切图/BG.png \
-		../QueryConsoleClient/Images/切图/bg.png \
-		../QueryConsoleClient/Images/切图/取消-拷贝.png \
-		../QueryConsoleClient/Images/切图/未验证.png \
-		../QueryConsoleClient/Images/切图/系统复核通过.png \
-		../QueryConsoleClient/Images/切图/人工绑定-拷贝.png \
-		../QueryConsoleClient/Images/切图/组-207.png \
-		../QueryConsoleClient/Images/切图/查询-拷贝.png \
-		../QueryConsoleClient/Images/切图/2号准备位-拷贝.png \
-		../QueryConsoleClient/Images/切图/确--认-拷贝.png \
-		../QueryConsoleClient/Images/切图/关--闭-拷贝.png \
-		../QueryConsoleClient/Images/切图/未复核.png \
-		../QueryConsoleClient/Images/切图/拦----截-拷贝.png \
-		../QueryConsoleClient/Images/切图/取消-拷贝-2.png \
-		../QueryConsoleClient/Images/切图/备降采集2.png \
-		../QueryConsoleClient/Images/切图/已报警.png \
-		../QueryConsoleClient/Images/切图/mima-(2).png \
-		../QueryConsoleClient/Images/切图/人工绑定.png \
-		../QueryConsoleClient/Images/切图/大弹窗BG.png \
-		../QueryConsoleClient/Images/切图/圆角矩形-1.png \
-		../QueryConsoleClient/Images/切图/未建库.png \
-		../QueryConsoleClient/Images/切图/BG2.png \
-		../QueryConsoleClient/Images/切图/关--闭-拷贝-按下.png \
-		../QueryConsoleClient/Images/切图/用户名.png \
-		../QueryConsoleClient/Images/切图/2号准备位.png \
-		../QueryConsoleClient/Images/切图/系统验证不通过.png \
-		../QueryConsoleClient/Images/切图/视屏框装饰-拷贝-5.png \
-		../QueryConsoleClient/Images/切图/3号准备位-拷贝-3.png \
-		../QueryConsoleClient/Images/切图/小弹窗BG.png \
-		../QueryConsoleClient/Images/切图/经停采集.png \
-		../QueryConsoleClient/Images/切图/故障状态显示位BG.png \
-		../QueryConsoleClient/Images/切图/登--录--拷贝.png \
-		../QueryConsoleClient/Images/切图/人工绑定通过.png \
-		../QueryConsoleClient/Images/切图/中转采集.png \
-		../QueryConsoleClient/Images/切图/人工复核通过.png \
-		../QueryConsoleClient/Images/切图/3号准备位-拷贝-2.png \
-		../QueryConsoleClient/Images/切图/2号准备位-拷贝-3.png \
-		../QueryConsoleClient/Images/切图/查询.png \
-		../QueryConsoleClient/Images/切图/待核验.png \
-		../QueryConsoleClient/Images/切图/icon_ylj.png \
-		../QueryConsoleClient/Images/切图/3号准备位.png \
-		../QueryConsoleClient/Images/切图/弹窗BG.png
-	/opt/Qt5.12.6/5.12.6/gcc_64/bin/rcc -name QueryConsoleClient ../QueryConsoleClient/QueryConsoleClient.qrc -o qrc_QueryConsoleClient.cpp
-
+	-$(DEL_FILE) qrc_QueryConsoleClient.cpp
 qrc_QueryConsoleClient.cpp: ../QueryConsoleClient/QueryConsoleClient.qrc \
 		/opt/Qt5.12.6/5.12.6/gcc_64/bin/rcc \
 		../QueryConsoleClient/Images/切图/确--认-拷贝-2.png \
