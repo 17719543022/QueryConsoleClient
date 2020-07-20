@@ -148,7 +148,7 @@
        </size>
       </property>
      </widget>
-     <widget class="QLabel" name="label_tips">
+     <widget class="ScrollText_Vertical" name="widget_tips" native="true">
       <property name="geometry">
        <rect>
         <x>170</x>
@@ -157,11 +157,19 @@
         <height>47</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">image: 0;</string>
+      <property name="font">
+       <font>
+        <family>Ubuntu</family>
+        <pointsize>28</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
       </property>
-      <property name="text">
-       <string/>
+      <property name="styleSheet">
+       <string notr="true">image: 0;
+color: rgb(188, 58, 58);
+font: 28pt &quot;Ubuntu&quot;;</string>
       </property>
      </widget>
     </widget>
@@ -741,7 +749,7 @@ QPushButton:pressed{border-image: url(:/Images/切图/3号准备位-拷贝-3.png
    <widget class="QWidget" name="widget_msg" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>800</x>
       <y>0</y>
       <width>800</width>
       <height>1280</height>
@@ -863,7 +871,7 @@ QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/切图/�
    <widget class="QWidget" name="widget_dlg" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>800</x>
       <y>0</y>
       <width>800</width>
       <height>1280</height>
@@ -929,6 +937,14 @@ color: rgb(0, 228, 255);</string>
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ScrollText_Vertical</class>
+   <extends>QWidget</extends>
+   <header location="global">ScrollText.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="QueryConsoleClient.qrc"/>
  </resources>

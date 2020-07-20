@@ -228,6 +228,12 @@ void MainWindow::updateTime_regularyRestart()
         disconnectImage.load(":/Images/切图/有.png");
         ui->label_netStat->setPixmap(QPixmap::fromImage(disconnectImage));
     }
+
+    if (!TicketScanSer::instance()->m_isOpen) {
+        ui->widget_tips->setTextList(QStringList() << "故障一：扫描枪打开失败！");
+        ui->widget_tips->setInterval_scrollTimer(2000);
+        ui->widget_tips->setInterval_animation(1000);
+    }
 }
 
 void MainWindow::updateNetStatus()
@@ -285,6 +291,7 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
         ui->seatIdLabel_2->setText(userInfoJson.toObject().value("seatId").toString());
         ui->boardingNumberLabel_2->setText(userInfoJson.toObject().value("boardingNumber").toString());
     }
+
     QJsonValue securityInfoJson = object.value("securityInfo");
     if (!securityInfoJson.isNull()) {
         ui->flowTableWidget->setRowHeight(0, 226);
@@ -293,59 +300,6 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
 
         QWidget *securityWidget = new QWidget();
         securityWidget->setFixedSize(766, 226);
-        QLabel *securityLabel = new QLabel(securityWidget);
-        securityLabel->setGeometry(0, 0, 180, 226);
-        securityLabel->setText("人证验证");
-        securityLabel->setFixedSize(180, 226);
-        securityLabel->setAlignment(Qt::AlignCenter);
-        securityLabel->setStyleSheet("image: 0; border: 0; background: 0; font: bold 20pt; color: rgb(0, 228, 255);");
-
-        QPixmap pixmap = getQPixmapSync(securityInfoJson.toObject().value("photoPath").toString());
-        pixmap = pixmap.scaled(150
-                               , 198
-                               , Qt::IgnoreAspectRatio
-                               , Qt::SmoothTransformation);
-        QLabel *securityPhotoLabel = new QLabel(securityWidget);
-        securityPhotoLabel->setGeometry(180, 0, 150, 226);
-        securityPhotoLabel->setPixmap(pixmap);
-        securityPhotoLabel->setFixedSize(150, 226);
-        securityPhotoLabel->setAlignment(Qt::AlignCenter);
-
-        QLabel *securityGateTitleLabel = new QLabel(securityWidget);
-        securityGateTitleLabel->setGeometry(330, 14, 144, 38);
-        securityGateTitleLabel->setText("通过位置：");
-        securityGateTitleLabel->setFixedSize(144, 38);
-        securityGateTitleLabel->setAlignment(Qt::AlignRight | Qt::AlignCenter);
-        securityGateTitleLabel->setStyleSheet("image: 0; border: 0; background: 0; font: 19pt; color: rgb(255, 255, 255);");
-
-        QLabel *securityTimeTitleLabel = new QLabel(securityWidget);
-        securityTimeTitleLabel->setGeometry(330, 58, 144, 38);
-        securityTimeTitleLabel->setText("通过时间：");
-        securityTimeTitleLabel->setFixedSize(144, 38);
-        securityTimeTitleLabel->setAlignment(Qt::AlignRight | Qt::AlignHCenter);
-        securityTimeTitleLabel->setStyleSheet("image: 0; border: 0; background: 0; font: 19pt; color: rgb(255, 255, 255);");
-
-        QLabel *securityGateValueLabel = new QLabel(securityWidget);
-        securityGateValueLabel->setGeometry(474, 14, 292, 38);
-        securityGateValueLabel->setText(securityInfoJson.toObject().value("channelName").toString());
-        securityGateValueLabel->setFixedSize(292, 38);
-        securityGateValueLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-        securityGateValueLabel->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
-
-        QLabel *securityTimeValueLabel_1 = new QLabel(securityWidget);
-        securityTimeValueLabel_1->setGeometry(474, 58, 292, 38);
-        QString passTime = securityInfoJson.toObject().value("passTime").toString();
-        securityTimeValueLabel_1->setText(passTime.left(4) + "/" + passTime.mid(5, 2) + "/" + passTime.mid(8, 2));
-        securityTimeValueLabel_1->setFixedSize(292, 38);
-        securityTimeValueLabel_1->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-        securityTimeValueLabel_1->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
-
-        QLabel *securityTimeValueLabel_2 = new QLabel(securityWidget);
-        securityTimeValueLabel_2->setGeometry(474, 102, 292, 38);
-        securityTimeValueLabel_2->setText(passTime.mid(11, 2) + "：" + passTime.mid(14, 2) + "：" + passTime.mid(17, 2));
-        securityTimeValueLabel_2->setFixedSize(292, 38);
-        securityTimeValueLabel_2->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-        securityTimeValueLabel_2->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
 
         QImage securityModalImage;
         int passType = securityInfoJson.toObject().value("passType").toInt();
@@ -394,10 +348,57 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
                                                        , Qt::SmoothTransformation);
         QPixmap securityModalPixmap = QPixmap::fromImage(securityModalImage);
         QLabel *securityModalLabel = new QLabel(securityWidget);
-        securityModalLabel->setGeometry(474, 162, 169, 50);
+        securityModalLabel->setGeometry(40, 88, 169, 50);
         securityModalLabel->setFixedSize(169, 50);
         securityModalLabel->setPixmap(securityModalPixmap);
         securityModalLabel->setStyleSheet("image: 0; border: 0; background: 0;");
+
+        QPixmap pixmap = getQPixmapSync(securityInfoJson.toObject().value("photoPath").toString());
+        pixmap = pixmap.scaled(150
+                               , 198
+                               , Qt::IgnoreAspectRatio
+                               , Qt::SmoothTransformation);
+        QLabel *securityPhotoLabel = new QLabel(securityWidget);
+        securityPhotoLabel->setGeometry(280, 0, 150, 226);
+        securityPhotoLabel->setPixmap(pixmap);
+        securityPhotoLabel->setFixedSize(150, 226);
+        securityPhotoLabel->setAlignment(Qt::AlignCenter);
+
+        QLabel *securityGateTitleLabel = new QLabel(securityWidget);
+        securityGateTitleLabel->setGeometry(500, 14, 144, 38);
+        securityGateTitleLabel->setText("通过位置：");
+        securityGateTitleLabel->setFixedSize(144, 38);
+        securityGateTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        securityGateTitleLabel->setStyleSheet("image: 0; border: 0; background: 0; font: 19pt; color: rgb(255, 255, 255);");
+
+        QLabel *securityGateValueLabel = new QLabel(securityWidget);
+        securityGateValueLabel->setGeometry(500, 54, 292, 38);
+        securityGateValueLabel->setText(securityInfoJson.toObject().value("channelName").toString());
+        securityGateValueLabel->setFixedSize(292, 38);
+        securityGateValueLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        securityGateValueLabel->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
+
+        QLabel *securityTimeTitleLabel = new QLabel(securityWidget);
+        securityTimeTitleLabel->setGeometry(500, 94, 144, 38);
+        securityTimeTitleLabel->setText("通过时间：");
+        securityTimeTitleLabel->setFixedSize(144, 38);
+        securityTimeTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        securityTimeTitleLabel->setStyleSheet("image: 0; border: 0; background: 0; font: 19pt; color: rgb(255, 255, 255);");
+
+        QLabel *securityTimeValueLabel_1 = new QLabel(securityWidget);
+        securityTimeValueLabel_1->setGeometry(500, 134, 292, 38);
+        QString passTime = securityInfoJson.toObject().value("passTime").toString();
+        securityTimeValueLabel_1->setText(passTime.left(4) + "/" + passTime.mid(5, 2) + "/" + passTime.mid(8, 2));
+        securityTimeValueLabel_1->setFixedSize(292, 38);
+        securityTimeValueLabel_1->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        securityTimeValueLabel_1->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
+
+        QLabel *securityTimeValueLabel_2 = new QLabel(securityWidget);
+        securityTimeValueLabel_2->setGeometry(500, 174, 292, 38);
+        securityTimeValueLabel_2->setText(passTime.mid(11, 2) + "：" + passTime.mid(14, 2) + "：" + passTime.mid(17, 2));
+        securityTimeValueLabel_2->setFixedSize(292, 38);
+        securityTimeValueLabel_2->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        securityTimeValueLabel_2->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
 
         QLabel *splitLabel = new QLabel(securityWidget);
         splitLabel->setGeometry(13, 0, 740, 2);
@@ -410,14 +411,101 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
         ui->flowTableWidget->setCellWidget(0, 0, securityWidget);
     }
 
+    QJsonValue recordsJson = object.value("records");
+    if (!recordsJson.isNull()) {
+        ui->flowTableWidget->setRowHeight(1, 226);
+        ui->flowTableWidget->insertRow(1);
+        ui->flowTableWidget->setRowHeight(1, 226);
+
+        QWidget *recordsWidget = new QWidget();
+        recordsWidget->setFixedSize(766, 226);
+
+        QImage recordModalImage;
+        int passType = recordsJson.toObject().value("passType").toInt();
+        switch (passType) {
+        case 1:
+            recordModalImage.load(":/Images/切图/系统绑定通过.png");
+            break;
+        case 2:
+            recordModalImage.load(":/Images/切图/人工绑定通过.png");
+            break;
+        case 3:
+            recordModalImage.load(":/Images/切图/已拦截.png");
+            break;
+        default:
+            break;
+        }
+        recordModalImage = recordModalImage.scaled(169
+                                                   , 50
+                                                   , Qt::IgnoreAspectRatio
+                                                   , Qt::SmoothTransformation);
+        QPixmap securityModalPixmap = QPixmap::fromImage(recordModalImage);
+        QLabel *recordModalLabel = new QLabel(recordsWidget);
+        recordModalLabel->setGeometry(40, 88, 169, 50);
+        recordModalLabel->setFixedSize(169, 50);
+        recordModalLabel->setPixmap(securityModalPixmap);
+        recordModalLabel->setStyleSheet("image: 0; border: 0; background: 0;");
+
+        QPixmap pixmap = getQPixmapSync(securityInfoJson.toObject().value("photoPath").toString());
+        pixmap = pixmap.scaled(150
+                               , 198
+                               , Qt::IgnoreAspectRatio
+                               , Qt::SmoothTransformation);
+        QLabel *recordPhotoLabel = new QLabel(recordsWidget);
+        recordPhotoLabel->setGeometry(280, 0, 150, 226);
+        recordPhotoLabel->setPixmap(pixmap);
+        recordPhotoLabel->setFixedSize(150, 226);
+        recordPhotoLabel->setAlignment(Qt::AlignCenter);
+
+        QLabel *recordGateTitleLabel = new QLabel(recordsWidget);
+        recordGateTitleLabel->setGeometry(500, 14, 144, 38);
+        recordGateTitleLabel->setText("通过位置：");
+        recordGateTitleLabel->setFixedSize(144, 38);
+        recordGateTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        recordGateTitleLabel->setStyleSheet("image: 0; border: 0; background: 0; font: 19pt; color: rgb(255, 255, 255);");
+
+        QLabel *recordGateValueLabel = new QLabel(recordsWidget);
+        recordGateValueLabel->setGeometry(500, 54, 292, 38);
+        recordGateValueLabel->setText(securityInfoJson.toObject().value("channelName").toString());
+        recordGateValueLabel->setFixedSize(292, 38);
+        recordGateValueLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        recordGateValueLabel->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
+
+        QLabel *recordTimeTitleLabel = new QLabel(recordsWidget);
+        recordTimeTitleLabel->setGeometry(500, 94, 144, 38);
+        recordTimeTitleLabel->setText("通过时间：");
+        recordTimeTitleLabel->setFixedSize(144, 38);
+        recordTimeTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        recordTimeTitleLabel->setStyleSheet("image: 0; border: 0; background: 0; font: 19pt; color: rgb(255, 255, 255);");
+
+        QLabel *recordTimeValueLabel_1 = new QLabel(recordsWidget);
+        recordTimeValueLabel_1->setGeometry(500, 134, 292, 38);
+        QString passTime = securityInfoJson.toObject().value("passTime").toString();
+        recordTimeValueLabel_1->setText(passTime.left(4) + "/" + passTime.mid(5, 2) + "/" + passTime.mid(8, 2));
+        recordTimeValueLabel_1->setFixedSize(292, 38);
+        recordTimeValueLabel_1->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        recordTimeValueLabel_1->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
+
+        QLabel *recordTimeValueLabel_2 = new QLabel(recordsWidget);
+        recordTimeValueLabel_2->setGeometry(500, 174, 292, 38);
+        recordTimeValueLabel_2->setText(passTime.mid(11, 2) + "：" + passTime.mid(14, 2) + "：" + passTime.mid(17, 2));
+        recordTimeValueLabel_2->setFixedSize(292, 38);
+        recordTimeValueLabel_2->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        recordTimeValueLabel_2->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
+
+        QLabel *bottomSplit = new QLabel(recordsWidget);
+        bottomSplit->setGeometry(13, 224, 740, 2);
+        bottomSplit->setStyleSheet("image: 0; background: 0; border-radius: 0; border-width: 1px; border-style: dashed; border-color: rgb(135, 183, 194);");
+
+        ui->flowTableWidget->setCellWidget(1, 0, recordsWidget);
+    }
+
     ui->widget_step1->show();
 }
 
 void MainWindow::onReply(QNetworkReply *reply)
 {
-    if (reply->url() != QUrl(LocalSettings::instance()->value("Interface/flowBackQueryUrl").toString())) {
-        time_request->stop();
-    }
+    time_request->stop();
 
     QVariant statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
 
@@ -543,6 +631,9 @@ void MainWindow::on_flowQueryPushButton_clicked()
     ui->passengerFlightLabel_2->clear();
     ui->boardingNumberLabel_2->clear();
     ui->seatIdLabel_2->clear();
+    ui->widget_step1->hide();
+    ui->widget_step2->hide();
+    ui->widget_step3->hide();
 
     QString input = ui->flowQueryLineEdit->text().toUpper();
 
@@ -662,6 +753,7 @@ void MainWindow::on_msgButton_Accept_clicked()
     // 接口中说是必须字段，应该是描述错误，应该是非必须字段才对
     json.insert("passengerSex", 0);
     json.insert("positionNumber", positionNumber);
+    json.insert("photoPathCode", flowDocument.object().value("results").toArray().at(0).toObject().value("securityInfo").toObject().value("photoPathCode").toString());
     json.insert("kindType", kindType);
 
     doc.setObject(json);
@@ -670,7 +762,22 @@ void MainWindow::on_msgButton_Accept_clicked()
     qDebug() << "post: " << doc;
 
     naManager->post(request, array);
+
+    ui->flowTableWidget->scrollToTop();
+    while (ui->flowTableWidget->rowCount() > 0) {
+        ui->flowTableWidget->removeRow(0);
+    }
+    ui->passengerNameLabel_2->clear();
+    ui->passengerCodeLabel_2->clear();
+    ui->passengerFlightLabel_2->clear();
+    ui->boardingNumberLabel_2->clear();
+    ui->seatIdLabel_2->clear();
+    ui->widget_step1->hide();
+    ui->widget_step2->hide();
+    ui->widget_step3->hide();
+
     ui->widget_msg->hide();
+    ui->widget_dialog->hide();
 }
 
 void MainWindow::on_msgButton_Reject_clicked()

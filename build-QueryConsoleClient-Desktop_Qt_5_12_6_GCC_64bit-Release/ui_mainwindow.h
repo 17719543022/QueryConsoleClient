@@ -19,6 +19,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
+#include <ScrollText.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -30,9 +31,10 @@ public:
     QWidget *widget_logo;
     QLabel *label_currentTime;
     QLabel *label_netStat;
+    QLabel *stateCam_x_2;
     QWidget *widget_menuUp;
     QPushButton *Button_return;
-    QLabel *label_tips;
+    ScrollText_Vertical *widget_tips;
     QWidget *widget_flowback;
     QWidget *flowQueryWidget;
     QWidget *flowqueryWidget;
@@ -107,6 +109,11 @@ public:
         label_netStat->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_netStat->setPixmap(QPixmap(QString::fromUtf8(":/Images/\345\210\207\345\233\276/\346\234\211.png")));
         label_netStat->setAlignment(Qt::AlignCenter);
+        stateCam_x_2 = new QLabel(widget_logo);
+        stateCam_x_2->setObjectName(QString::fromUtf8("stateCam_x_2"));
+        stateCam_x_2->setGeometry(QRect(680, 18, 80, 14));
+        stateCam_x_2->setStyleSheet(QString::fromUtf8("font-family: \"Microsoft Yahei\";font-size:10px;background:transparent;color:#00ff00;"));
+        stateCam_x_2->setAlignment(Qt::AlignCenter);
         widget_menuUp = new QWidget(widget_ALL);
         widget_menuUp->setObjectName(QString::fromUtf8("widget_menuUp"));
         widget_menuUp->setGeometry(QRect(0, 49, 800, 47));
@@ -119,10 +126,19 @@ public:
         icon.addFile(QString::fromUtf8(":/Images/\345\210\207\345\233\276/\350\277\224\345\233\236-\346\226\260.png"), QSize(), QIcon::Normal, QIcon::Off);
         Button_return->setIcon(icon);
         Button_return->setIconSize(QSize(22, 36));
-        label_tips = new QLabel(widget_menuUp);
-        label_tips->setObjectName(QString::fromUtf8("label_tips"));
-        label_tips->setGeometry(QRect(170, 0, 460, 47));
-        label_tips->setStyleSheet(QString::fromUtf8("image: 0;"));
+        widget_tips = new ScrollText_Vertical(widget_menuUp);
+        widget_tips->setObjectName(QString::fromUtf8("widget_tips"));
+        widget_tips->setGeometry(QRect(170, 0, 460, 47));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Ubuntu"));
+        font1.setPointSize(28);
+        font1.setBold(false);
+        font1.setItalic(false);
+        font1.setWeight(50);
+        widget_tips->setFont(font1);
+        widget_tips->setStyleSheet(QString::fromUtf8("image: 0;\n"
+"color: rgb(188, 58, 58);\n"
+"font: 28pt \"Ubuntu\";"));
         widget_flowback = new QWidget(widget_ALL);
         widget_flowback->setObjectName(QString::fromUtf8("widget_flowback"));
         widget_flowback->setGeometry(QRect(0, 105, 800, 1175));
@@ -148,9 +164,9 @@ public:
         flowQueryLineEdit = new QLineEdit(flowQueryLineWidget);
         flowQueryLineEdit->setObjectName(QString::fromUtf8("flowQueryLineEdit"));
         flowQueryLineEdit->setGeometry(QRect(4, 1, 351, 38));
-        QFont font1;
-        font1.setPointSize(18);
-        flowQueryLineEdit->setFont(font1);
+        QFont font2;
+        font2.setPointSize(18);
+        flowQueryLineEdit->setFont(font2);
         flowQueryLineEdit->setStyleSheet(QString::fromUtf8(""));
         flowQueryLineEdit->setMaxLength(18);
         flowQueryPushButton = new QPushButton(flowqueryWidget);
@@ -168,54 +184,54 @@ public:
         passengerNameLabel_1 = new QLabel(userInfoWidget);
         passengerNameLabel_1->setObjectName(QString::fromUtf8("passengerNameLabel_1"));
         passengerNameLabel_1->setGeometry(QRect(75, 0, 120, 38));
-        QFont font2;
-        font2.setPointSize(19);
-        passengerNameLabel_1->setFont(font2);
+        QFont font3;
+        font3.setPointSize(19);
+        passengerNameLabel_1->setFont(font3);
         passengerNameLabel_1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         passengerNameLabel_2 = new QLabel(userInfoWidget);
         passengerNameLabel_2->setObjectName(QString::fromUtf8("passengerNameLabel_2"));
         passengerNameLabel_2->setGeometry(QRect(200, 0, 241, 38));
-        passengerNameLabel_2->setFont(font2);
+        passengerNameLabel_2->setFont(font3);
         passengerNameLabel_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 228, 255);"));
         passengerFlightLabel_1 = new QLabel(userInfoWidget);
         passengerFlightLabel_1->setObjectName(QString::fromUtf8("passengerFlightLabel_1"));
         passengerFlightLabel_1->setGeometry(QRect(445, 0, 110, 38));
-        passengerFlightLabel_1->setFont(font2);
+        passengerFlightLabel_1->setFont(font3);
         passengerFlightLabel_1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         passengerFlightLabel_2 = new QLabel(userInfoWidget);
         passengerFlightLabel_2->setObjectName(QString::fromUtf8("passengerFlightLabel_2"));
         passengerFlightLabel_2->setGeometry(QRect(560, 0, 191, 38));
-        passengerFlightLabel_2->setFont(font2);
+        passengerFlightLabel_2->setFont(font3);
         passengerFlightLabel_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 228, 255);"));
         passengerCodeLabel_1 = new QLabel(userInfoWidget);
         passengerCodeLabel_1->setObjectName(QString::fromUtf8("passengerCodeLabel_1"));
         passengerCodeLabel_1->setGeometry(QRect(75, 60, 111, 38));
-        passengerCodeLabel_1->setFont(font2);
+        passengerCodeLabel_1->setFont(font3);
         passengerCodeLabel_1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         passengerCodeLabel_2 = new QLabel(userInfoWidget);
         passengerCodeLabel_2->setObjectName(QString::fromUtf8("passengerCodeLabel_2"));
         passengerCodeLabel_2->setGeometry(QRect(195, 60, 541, 38));
-        passengerCodeLabel_2->setFont(font2);
+        passengerCodeLabel_2->setFont(font3);
         passengerCodeLabel_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 228, 255);"));
         seatIdLabel_1 = new QLabel(userInfoWidget);
         seatIdLabel_1->setObjectName(QString::fromUtf8("seatIdLabel_1"));
         seatIdLabel_1->setGeometry(QRect(75, 120, 111, 38));
-        seatIdLabel_1->setFont(font2);
+        seatIdLabel_1->setFont(font3);
         seatIdLabel_1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         seatIdLabel_2 = new QLabel(userInfoWidget);
         seatIdLabel_2->setObjectName(QString::fromUtf8("seatIdLabel_2"));
         seatIdLabel_2->setGeometry(QRect(195, 120, 221, 38));
-        seatIdLabel_2->setFont(font2);
+        seatIdLabel_2->setFont(font3);
         seatIdLabel_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 228, 255);"));
         boardingNumberLabel_1 = new QLabel(userInfoWidget);
         boardingNumberLabel_1->setObjectName(QString::fromUtf8("boardingNumberLabel_1"));
         boardingNumberLabel_1->setGeometry(QRect(445, 120, 91, 38));
-        boardingNumberLabel_1->setFont(font2);
+        boardingNumberLabel_1->setFont(font3);
         boardingNumberLabel_1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         boardingNumberLabel_2 = new QLabel(userInfoWidget);
         boardingNumberLabel_2->setObjectName(QString::fromUtf8("boardingNumberLabel_2"));
         boardingNumberLabel_2->setGeometry(QRect(549, 120, 191, 38));
-        boardingNumberLabel_2->setFont(font2);
+        boardingNumberLabel_2->setFont(font3);
         boardingNumberLabel_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 228, 255);"));
         widget_wrapper = new QWidget(flowQueryWidget);
         widget_wrapper->setObjectName(QString::fromUtf8("widget_wrapper"));
@@ -235,12 +251,12 @@ public:
         locationsLabel_1 = new QLabel(widget_step2);
         locationsLabel_1->setObjectName(QString::fromUtf8("locationsLabel_1"));
         locationsLabel_1->setGeometry(QRect(52, 48, 311, 41));
-        QFont font3;
-        font3.setPointSize(20);
-        font3.setBold(true);
-        font3.setWeight(75);
-        font3.setKerning(true);
-        locationsLabel_1->setFont(font3);
+        QFont font4;
+        font4.setPointSize(20);
+        font4.setBold(true);
+        font4.setWeight(75);
+        font4.setKerning(true);
+        locationsLabel_1->setFont(font4);
         locationsLabel_1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         pushButton_location1 = new QPushButton(widget_step2);
         pushButton_location1->setObjectName(QString::fromUtf8("pushButton_location1"));
@@ -276,11 +292,11 @@ public:
         locationsLabel_2 = new QLabel(widget_step3);
         locationsLabel_2->setObjectName(QString::fromUtf8("locationsLabel_2"));
         locationsLabel_2->setGeometry(QRect(52, 48, 311, 41));
-        QFont font4;
-        font4.setPointSize(20);
-        font4.setBold(true);
-        font4.setWeight(75);
-        locationsLabel_2->setFont(font4);
+        QFont font5;
+        font5.setPointSize(20);
+        font5.setBold(true);
+        font5.setWeight(75);
+        locationsLabel_2->setFont(font5);
         locationsLabel_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         pushButton_intercept1 = new QPushButton(widget_step3);
         pushButton_intercept1->setObjectName(QString::fromUtf8("pushButton_intercept1"));
@@ -299,7 +315,7 @@ public:
 "QPushButton:pressed{border-image: url(:/Images/\345\210\207\345\233\276/3\345\217\267\345\207\206\345\244\207\344\275\215-\346\213\267\350\264\235-3.png);}"));
         widget_msg = new QWidget(centralwidget);
         widget_msg->setObjectName(QString::fromUtf8("widget_msg"));
-        widget_msg->setGeometry(QRect(0, 0, 800, 1280));
+        widget_msg->setGeometry(QRect(800, 0, 800, 1280));
         widget_msg->setStyleSheet(QString::fromUtf8("border: 0;\n"
 "background-color: rgba(0, 0, 0, 0.5);"));
         widget_box = new QWidget(widget_msg);
@@ -310,9 +326,9 @@ public:
         label_text = new QLabel(widget_box);
         label_text->setObjectName(QString::fromUtf8("label_text"));
         label_text->setGeometry(QRect(0, 80, 552, 150));
-        QFont font5;
-        font5.setPointSize(20);
-        label_text->setFont(font5);
+        QFont font6;
+        font6.setPointSize(20);
+        label_text->setFont(font6);
         label_text->setStyleSheet(QString::fromUtf8("image: 0;\n"
 "background: 0;\n"
 "color: rgb(255, 255, 255);"));
@@ -339,7 +355,7 @@ public:
 "QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/\345\210\207\345\233\276/\347\241\256--\350\256\244-\346\213\267\350\264\235-2.png);}"));
         widget_dlg = new QWidget(centralwidget);
         widget_dlg->setObjectName(QString::fromUtf8("widget_dlg"));
-        widget_dlg->setGeometry(QRect(0, 0, 800, 1280));
+        widget_dlg->setGeometry(QRect(800, 0, 800, 1280));
         widget_dlg->setStyleSheet(QString::fromUtf8("border: 0;\n"
 "background-color: rgba(0, 0, 0, 0.5);"));
         widget_dialog = new QWidget(widget_dlg);
@@ -350,9 +366,9 @@ public:
         titleLabel = new QLabel(widget_dialog);
         titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
         titleLabel->setGeometry(QRect(0, 0, 500, 65));
-        QFont font6;
-        font6.setPointSize(30);
-        titleLabel->setFont(font6);
+        QFont font7;
+        font7.setPointSize(30);
+        titleLabel->setFont(font7);
         titleLabel->setStyleSheet(QString::fromUtf8("image: 0;\n"
 "background: 0;\n"
 "color: rgb(0, 228, 255);"));
@@ -373,8 +389,8 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         label_currentTime->setText(QApplication::translate("MainWindow", "00:00:00", nullptr));
         label_netStat->setText(QString());
+        stateCam_x_2->setText(QApplication::translate("MainWindow", "\347\211\210\346\234\254\345\217\267\357\274\232v1.0.0", nullptr));
         Button_return->setText(QString());
-        label_tips->setText(QString());
         flowQueryLineEdit->setText(QString());
         flowQueryLineEdit->setPlaceholderText(QApplication::translate("MainWindow", "\350\257\201\344\273\266\345\217\267 \346\210\226 \350\210\252\347\217\255\345\217\267#\345\272\217\345\217\267", nullptr));
         flowQueryPushButton->setText(QString());
