@@ -535,7 +535,7 @@ background: transparent;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>702</y>
+        <y>902</y>
         <width>800</width>
         <height>200</height>
        </rect>
@@ -620,7 +620,7 @@ QPushButton:pressed{border-image: url(:/Images/切图/3号准备位-拷贝.png);
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>650</y>
+        <y>850</y>
         <width>800</width>
         <height>52</height>
        </rect>
@@ -664,7 +664,7 @@ QPushButton:pressed{border-image: url(:/Images/切图/拦----截-拷贝.png);}</
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>702</y>
+        <y>902</y>
         <width>800</width>
         <height>200</height>
        </rect>
@@ -749,7 +749,7 @@ QPushButton:pressed{border-image: url(:/Images/切图/3号准备位-拷贝-3.png
    <widget class="QWidget" name="widget_msg" native="true">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>0</x>
       <y>0</y>
       <width>800</width>
       <height>1280</height>
@@ -871,7 +871,7 @@ QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/切图/�
    <widget class="QWidget" name="widget_dlg" native="true">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>0</x>
       <y>0</y>
       <width>800</width>
       <height>1280</height>

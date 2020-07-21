@@ -106,6 +106,7 @@ void TicketScanSer::TestOnline()
 {
     try {
         {
+
             m_mutex.lock();
             if(m_isOpen && m_sp!=nullptr){
                 if(!m_sp->isOpen()){

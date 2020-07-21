@@ -120,7 +120,6 @@ MainWindow::MainWindow(QWidget *parent)
     , time_request(new QTimer(this))
     , positionNumber(0)
     , kindType(0)
-    , ticketScanSer(new TicketScanSer(this))
 {
     ui->setupUi(this);
 
@@ -189,7 +188,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->widget_dlg->hide();
     });
 
-    connect(ticketScanSer
+    connect(TicketScanSer::instance()
             , SIGNAL(ScanReadDataResult(const BoardingTicketInfo &))
             , this
             , SLOT(onNewTicket(const BoardingTicketInfo &)));
@@ -233,6 +232,8 @@ void MainWindow::updateTime_regularyRestart()
         ui->widget_tips->setTextList(QStringList() << "故障一：扫描枪打开失败！");
         ui->widget_tips->setInterval_scrollTimer(2000);
         ui->widget_tips->setInterval_animation(1000);
+    } else {
+        ui->widget_tips->setTextList(QStringList());
     }
 }
 
@@ -446,7 +447,7 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
         recordModalLabel->setPixmap(securityModalPixmap);
         recordModalLabel->setStyleSheet("image: 0; border: 0; background: 0;");
 
-        QPixmap pixmap = getQPixmapSync(securityInfoJson.toObject().value("photoPath").toString());
+        QPixmap pixmap = getQPixmapSync(recordsJson.toObject().value("photoPath").toString());
         pixmap = pixmap.scaled(150
                                , 198
                                , Qt::IgnoreAspectRatio
@@ -466,7 +467,7 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
 
         QLabel *recordGateValueLabel = new QLabel(recordsWidget);
         recordGateValueLabel->setGeometry(500, 54, 292, 38);
-        recordGateValueLabel->setText(securityInfoJson.toObject().value("channelName").toString());
+        recordGateValueLabel->setText(recordsJson.toObject().value("channelName").toString());
         recordGateValueLabel->setFixedSize(292, 38);
         recordGateValueLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         recordGateValueLabel->setStyleSheet("image: 0; border: 0; background: 0; font: bold 19pt; color: rgb(0, 228, 255);");
@@ -480,7 +481,7 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
 
         QLabel *recordTimeValueLabel_1 = new QLabel(recordsWidget);
         recordTimeValueLabel_1->setGeometry(500, 134, 292, 38);
-        QString passTime = securityInfoJson.toObject().value("passTime").toString();
+        QString passTime = recordsJson.toObject().value("passTime").toString();
         recordTimeValueLabel_1->setText(passTime.left(4) + "/" + passTime.mid(5, 2) + "/" + passTime.mid(8, 2));
         recordTimeValueLabel_1->setFixedSize(292, 38);
         recordTimeValueLabel_1->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);

@@ -247,7 +247,7 @@ public:
         flowTableWidget->setColumnCount(1);
         widget_step2 = new QWidget(widget_flowback);
         widget_step2->setObjectName(QString::fromUtf8("widget_step2"));
-        widget_step2->setGeometry(QRect(0, 702, 800, 200));
+        widget_step2->setGeometry(QRect(0, 902, 800, 200));
         locationsLabel_1 = new QLabel(widget_step2);
         locationsLabel_1->setObjectName(QString::fromUtf8("locationsLabel_1"));
         locationsLabel_1->setGeometry(QRect(52, 48, 311, 41));
@@ -275,7 +275,7 @@ public:
 "QPushButton:pressed{border-image: url(:/Images/\345\210\207\345\233\276/3\345\217\267\345\207\206\345\244\207\344\275\215-\346\213\267\350\264\235.png);}"));
         widget_step1 = new QWidget(widget_flowback);
         widget_step1->setObjectName(QString::fromUtf8("widget_step1"));
-        widget_step1->setGeometry(QRect(0, 650, 800, 52));
+        widget_step1->setGeometry(QRect(0, 850, 800, 52));
         pushButton_bind = new QPushButton(widget_step1);
         pushButton_bind->setObjectName(QString::fromUtf8("pushButton_bind"));
         pushButton_bind->setGeometry(QRect(130, 0, 163, 52));
@@ -288,7 +288,7 @@ public:
 "QPushButton:pressed{border-image: url(:/Images/\345\210\207\345\233\276/\346\213\246----\346\210\252-\346\213\267\350\264\235.png);}"));
         widget_step3 = new QWidget(widget_flowback);
         widget_step3->setObjectName(QString::fromUtf8("widget_step3"));
-        widget_step3->setGeometry(QRect(0, 702, 800, 200));
+        widget_step3->setGeometry(QRect(0, 902, 800, 200));
         locationsLabel_2 = new QLabel(widget_step3);
         locationsLabel_2->setObjectName(QString::fromUtf8("locationsLabel_2"));
         locationsLabel_2->setGeometry(QRect(52, 48, 311, 41));
@@ -315,7 +315,7 @@ public:
 "QPushButton:pressed{border-image: url(:/Images/\345\210\207\345\233\276/3\345\217\267\345\207\206\345\244\207\344\275\215-\346\213\267\350\264\235-3.png);}"));
         widget_msg = new QWidget(centralwidget);
         widget_msg->setObjectName(QString::fromUtf8("widget_msg"));
-        widget_msg->setGeometry(QRect(800, 0, 800, 1280));
+        widget_msg->setGeometry(QRect(0, 0, 800, 1280));
         widget_msg->setStyleSheet(QString::fromUtf8("border: 0;\n"
 "background-color: rgba(0, 0, 0, 0.5);"));
         widget_box = new QWidget(widget_msg);
@@ -355,7 +355,7 @@ public:
 "QPushButton:pressed{image: 0; background: 0; border-image: url(:/Images/\345\210\207\345\233\276/\347\241\256--\350\256\244-\346\213\267\350\264\235-2.png);}"));
         widget_dlg = new QWidget(centralwidget);
         widget_dlg->setObjectName(QString::fromUtf8("widget_dlg"));
-        widget_dlg->setGeometry(QRect(800, 0, 800, 1280));
+        widget_dlg->setGeometry(QRect(0, 0, 800, 1280));
         widget_dlg->setStyleSheet(QString::fromUtf8("border: 0;\n"
 "background-color: rgba(0, 0, 0, 0.5);"));
         widget_dialog = new QWidget(widget_dlg);

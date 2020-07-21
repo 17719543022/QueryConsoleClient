@@ -104,7 +104,6 @@ private:
     QJsonDocument flowDocument;
     int positionNumber;
     int kindType;
-    TicketScanSer *ticketScanSer;
     MyListen myListen;
 };
 #endif // MAINWINDOW_H
