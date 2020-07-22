@@ -251,7 +251,7 @@ border-radius: 4px;</string>
           <number>18</number>
          </property>
          <property name="placeholderText">
-          <string>证件号 或 航班号#序号</string>
+          <string>航班号#序号</string>
          </property>
         </widget>
        </widget>

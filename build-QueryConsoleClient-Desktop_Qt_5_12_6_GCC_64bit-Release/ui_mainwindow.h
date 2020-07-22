@@ -392,7 +392,7 @@ public:
         stateCam_x_2->setText(QApplication::translate("MainWindow", "\347\211\210\346\234\254\345\217\267\357\274\232v1.0.0", nullptr));
         Button_return->setText(QString());
         flowQueryLineEdit->setText(QString());
-        flowQueryLineEdit->setPlaceholderText(QApplication::translate("MainWindow", "\350\257\201\344\273\266\345\217\267 \346\210\226 \350\210\252\347\217\255\345\217\267#\345\272\217\345\217\267", nullptr));
+        flowQueryLineEdit->setPlaceholderText(QApplication::translate("MainWindow", "\350\210\252\347\217\255\345\217\267#\345\272\217\345\217\267", nullptr));
         flowQueryPushButton->setText(QString());
         passengerNameLabel_1->setText(QApplication::translate("MainWindow", "\346\227\205\345\256\242\345\247\223\345\220\215\357\274\232", nullptr));
         passengerNameLabel_2->setText(QString());
