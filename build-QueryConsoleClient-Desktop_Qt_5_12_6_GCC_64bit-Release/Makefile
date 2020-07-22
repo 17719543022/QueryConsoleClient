@@ -798,7 +798,55 @@ qrc_QueryConsoleClient.cpp: ../QueryConsoleClient/QueryConsoleClient.qrc \
 		../QueryConsoleClient/Images/切图/证件失效-拷贝.png \
 		../QueryConsoleClient/Images/切图/小弹窗BG.png \
 		../QueryConsoleClient/Images/切图/2号准备位.png \
-		../QueryConsoleClient/Images/切图/2号准备位-拷贝-3.png
+		../QueryConsoleClient/Images/切图/2号准备位-拷贝-3.png \
+		../QueryConsoleClient/Images/3.2.1/查询-2-拷贝.png \
+		../QueryConsoleClient/Images/3.2.1/放---行-拷贝.png \
+		../QueryConsoleClient/Images/3.2.1/证件失效.png \
+		../QueryConsoleClient/Images/3.2.1/识别失败.png \
+		../QueryConsoleClient/Images/3.2.1/返回.png \
+		../QueryConsoleClient/Images/3.2.1/婴儿放行.png \
+		../QueryConsoleClient/Images/3.2.1/照片-退回安检.png \
+		../QueryConsoleClient/Images/3.2.1/人工验证通过.png \
+		../QueryConsoleClient/Images/3.2.1/拦---截-拷贝.png \
+		../QueryConsoleClient/Images/3.2.1/查询2.png \
+		../QueryConsoleClient/Images/3.2.1/婴儿放行-拷贝.png \
+		../QueryConsoleClient/Images/3.2.1/照片-小.png \
+		../QueryConsoleClient/Images/3.2.1/2号通道-拷贝.png \
+		../QueryConsoleClient/Images/3.2.1/1号通道.png \
+		../QueryConsoleClient/Images/3.2.1/系统复核通过.png \
+		../QueryConsoleClient/Images/3.2.1/未勾选.png \
+		../QueryConsoleClient/Images/3.2.1/复核异常.png \
+		../QueryConsoleClient/Images/3.2.1/信息缺失.png \
+		../QueryConsoleClient/Images/3.2.1/值机取消.png \
+		../QueryConsoleClient/Images/3.2.1/安检无记录.png \
+		../QueryConsoleClient/Images/3.2.1/登机识别通过.png \
+		../QueryConsoleClient/Images/3.2.1/返回3.png \
+		../QueryConsoleClient/Images/3.2.1/特殊旅客-拷贝.png \
+		../QueryConsoleClient/Images/3.2.1/关--闭.png \
+		../QueryConsoleClient/Images/3.2.1/退回安检.png \
+		../QueryConsoleClient/Images/3.2.1/返回2.png \
+		../QueryConsoleClient/Images/3.2.1/特殊旅客.png \
+		../QueryConsoleClient/Images/3.2.1/复核无记录.png \
+		../QueryConsoleClient/Images/3.2.1/安检验证通过.png \
+		../QueryConsoleClient/Images/3.2.1/中转.png \
+		../QueryConsoleClient/Images/3.2.1/登机人工放行.png \
+		../QueryConsoleClient/Images/3.2.1/系统验证不通过.png \
+		../QueryConsoleClient/Images/3.2.1/1号通道-拷贝.png \
+		../QueryConsoleClient/Images/3.2.1/过站.png \
+		../QueryConsoleClient/Images/3.2.1/2号通道.png \
+		../QueryConsoleClient/Images/3.2.1/拦---截.png \
+		../QueryConsoleClient/Images/3.2.1/中转采集.png \
+		../QueryConsoleClient/Images/3.2.1/人工复核通过.png \
+		../QueryConsoleClient/Images/3.2.1/已拦截.png \
+		../QueryConsoleClient/Images/3.2.1/旅客详情弹窗.png \
+		../QueryConsoleClient/Images/3.2.1/待核验.png \
+		../QueryConsoleClient/Images/3.2.1/放---行.png \
+		../QueryConsoleClient/Images/3.2.1/过站采集.png \
+		../QueryConsoleClient/Images/3.2.1/勾选.png \
+		../QueryConsoleClient/Images/3.2.1/矩形-4363.png \
+		../QueryConsoleClient/Images/3.2.1/备降采集.png \
+		../QueryConsoleClient/Images/3.2.1/参考/3.2-3.2.1\ \ 实时登机2\ \ .jpg \
+		../QueryConsoleClient/Images/3.2.1/参考/3.2-3.2.1\ \ 实时登机\ \ .jpg
 	/opt/Qt5.12.6/5.12.6/gcc_64/bin/rcc -name QueryConsoleClient ../QueryConsoleClient/QueryConsoleClient.qrc -o qrc_QueryConsoleClient.cpp
 
 compiler_qmlcache_make_all:

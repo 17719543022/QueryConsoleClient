@@ -305,43 +305,65 @@ void MainWindow::fillWithSpecificResult(const QJsonObject &object)
         QImage securityModalImage;
         int passType = securityInfoJson.toObject().value("passType").toInt();
         int passStatus = securityInfoJson.toObject().value("passStatus").toInt();
-        switch (passType) {
-        case 0:
-        case 2:
+        if (0 == passType){// 0人证1:1 1人工放行 2闸机B门通过 3 验票通过 4-未知
             switch (passStatus) {
-            case 0:
-                securityModalImage.load(":/Images/切图/系统验证通过.png");
+            case 0://pass
+                securityModalImage.load(":/Images/3.2.1/安检验证通过.png");
                 break;
-            case 1:
-                securityModalImage.load(":/Images/切图/系统验证不通过.png");
+            case 1://no pass
+                securityModalImage.load(":/Images/3.2.1/系统验证不通过.png");
                 break;
-            case 3:
-                securityModalImage.load(":/Images/切图/证件失效.png");
+            case 2://unkown
+                securityModalImage.load(":/Images/3.2.1/安检无记录.png");
+                break;
+            case 3://ID card expired
+                securityModalImage.load(":/Images/3.2.1/证件失效.png");
                 break;
             default:
-                securityModalImage.load(":/Images/切图/icon_wjl.png");
                 break;
             }
-            break;
-        case 1:
+        }
+        else if (1 == passType){
             switch (passStatus) {
-            case 0:
-                securityModalImage.load(":/Images/切图/人工验证通过.png");
+            case 0://pass
+                securityModalImage.load(":/Images/3.2.1/人工验证通过.png");
                 break;
-            case 1:
-                securityModalImage.load(":/Images/切图/icon_wjl.png");
+            case 1://no pass
+                securityModalImage.load(":/Images/3.2.1/已拦截.png");
+                break;
+            case 2://unkown
+                securityModalImage.load(":/Images/3.2.1/安检无记录.png");
+                break;
+            case 3://ID card expired
+                securityModalImage.load(":/Images/3.2.1/证件失效.png");
                 break;
             default:
-                securityModalImage.load(":/Images/切图/icon_wjl.png");
                 break;
             }
-            break;
-        case 3:
-            securityModalImage.load(":/Images/切图/人工验证通过.png");
-            break;
-        default:
-            securityModalImage.load(":/Images/切图/icon_wjl.png");
-            break;
+        }
+        else if (2 == passType){
+            switch (passStatus) {
+            case 0://pass
+                securityModalImage.load(":/Images/3.2.1/安检验证通过.png");
+                break;
+            case 1://no pass
+                securityModalImage.load(":/Images/3.2.1/系统验证不通过.png");
+                break;
+            case 2://unkown
+                securityModalImage.load(":/Images/3.2.1/安检无记录.png");
+                break;
+            case 3://ID card expired
+                securityModalImage.load(":/Images/3.2.1/证件失效.png");
+                break;
+            default:
+                break;
+            }
+        }
+        else if (3 == passType){
+            securityModalImage.load(":/Images/3.2.1/人工验证通过.png");
+        }
+        else {
+            securityModalImage.load(":/Images/3.2.1/安检无记录.png");
         }
         securityModalImage = securityModalImage.scaled(169
                                                        , 50
