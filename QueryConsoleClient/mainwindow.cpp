@@ -55,23 +55,23 @@ void MyListen::CommonRequstListen(const std::string &uri, const std::string &str
     }
 
     QJsonObject json;
-    QJsonObject content;
+    QJsonObject data;
 
-    json.insert("reqId", object.value("reqId").toString());
     json.insert("status", 0);
+    json.insert("reqId", object.value("reqId").toString());
     json.insert("msg", "");
-    json.insert("heartbeat", 0);
-    json.insert("devicestatus", isConnectedGlobal && TicketScanSer::instance()->m_isOpen);
+    json.insert("heartbeat", object.value("heartbeat").toInt());
 
-    content.insert("type", object.value("content").toObject().value("type").toInt());
-    content.insert("rfid", object.value("content").toObject().value("rfid").toString());
-    content.insert("status", object.value("content").toObject().value("status").toInt());
-    content.insert("position", object.value("content").toObject().value("position").toInt());
-    content.insert("mode", object.value("content").toObject().value("mode").toInt());
-    content.insert("time", object.value("content").toObject().value("time").toString());
-    content.insert("weight", object.value("content").toObject().value("weight").toString());
+    data.insert("seq", object.value("data").toObject().value("seq").toInt());
+    data.insert("type", object.value("data").toObject().value("type").toInt());
+    data.insert("rfid", object.value("data").toObject().value("rfid").toString());
+    data.insert("flag", object.value("data").toObject().value("flag").toInt());
+    data.insert("state", object.value("data").toObject().value("state").toInt());
+    data.insert("datetime", object.value("data").toObject().value("datetime").toString());
+    data.insert("mode", object.value("data").toObject().value("mode").toInt());
+    data.insert("weight", object.value("data").toObject().value("weight").toString());
 
-    json.insert("content", content);
+    json.insert("data", data);
     strResponse = QString(QJsonDocument(json).toJson()).toStdString();
     qDebug() << "strResponse: " << QString::fromLocal8Bit(strResponse.c_str());
 }
