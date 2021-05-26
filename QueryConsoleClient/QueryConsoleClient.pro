@@ -17,10 +17,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 unix {
     LIBS += -L$$PWD/../linux -lHTTPServer
+    LIBS += -L$$PWD/../idcard/3rdSo/JingLun -lidr210hid_reader
+    LIBS += -L$$PWD/../idcard -lIDCardRead_RecogSDK
 }
 
 SOURCES += \
     ScrollText.cpp \
+    cardreadser.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -30,10 +33,14 @@ SOURCES += \
 HEADERS += \
     HTTPServer/HTTPServerDef.h \
     HTTPServer/HTTPServerExp.h \
+    CardReader/DataStructDefine.h \
+    CardReader/IDCardRead_RecogSDK.h \
+    CardReader/paramdef.h \
+    CardReader/gateparamdef.h \
     ScrollText.h \
+    cardreadser.h \
     logindialog.h \
     mainwindow.h \
-    paramdef.h \
     settings.h \
     ticketscanser.h
 

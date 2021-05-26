@@ -1,7 +1,7 @@
 #ifndef TICKETSCANSER_H
 #define TICKETSCANSER_H
 
-#include "paramdef.h"
+#include "CardReader/paramdef.h"
 #include <QObject>
 #include <QSerialPort>
 #include <QSerialPortInfo>

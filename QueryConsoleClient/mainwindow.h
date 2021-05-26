@@ -8,6 +8,7 @@
 #include <QJsonDocument>
 #include "ticketscanser.h"
 #include "HTTPServer/HTTPServerExp.h"
+#include "cardreadser.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -49,6 +50,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+
     ~MainWindow();
 
 private slots:
@@ -71,6 +73,8 @@ private slots:
     void onReply(QNetworkReply *reply);
 
     void onNewTicket(const BoardingTicketInfo& btInfo);
+
+    void onNewCard(const CardDataInfo& cardData);
 
     void clicked(int widgetIndex);
 

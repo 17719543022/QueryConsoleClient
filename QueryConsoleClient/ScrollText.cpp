@@ -1,5 +1,4 @@
 ﻿#include "ScrollText.h"
-
 #include <QLabel>
 #include <QPropertyAnimation>
 #include <QTimer>

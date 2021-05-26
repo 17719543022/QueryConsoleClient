@@ -192,6 +192,11 @@ MainWindow::MainWindow(QWidget *parent)
             , SIGNAL(ScanReadDataResult(const BoardingTicketInfo &))
             , this
             , SLOT(onNewTicket(const BoardingTicketInfo &)));
+
+    connect(CardReadSer::instance()
+            , SIGNAL(CardDataResult(const CardDataInfo &))
+            , this
+            , SLOT(onNewCard(const CardDataInfo &)));
 }
 
 MainWindow::~MainWindow()
@@ -273,9 +278,18 @@ QPixmap MainWindow::getQPixmapSync(QString str)
     return pixmap;
 }
 
-void MainWindow::onNewTicket(const BoardingTicketInfo& btInfo) {
+void MainWindow::onNewTicket(const BoardingTicketInfo& btInfo)
+{
     qDebug() << "BoardingTicketInfo: " << btInfo.flightNo;
     ui->flowQueryLineEdit->setText(btInfo.flightNo + '#' + btInfo.boardingNumber + '#' + btInfo.flightDay);
+
+    this->on_flowQueryPushButton_clicked();
+}
+
+void MainWindow::onNewCard(const CardDataInfo& cardData)
+{
+    qDebug() << "idCard: " << cardData.idCard;
+    ui->flowQueryLineEdit->setText(cardData.idCard);
 
     this->on_flowQueryPushButton_clicked();
 }
